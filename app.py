@@ -120,19 +120,17 @@ try:
     if st.button('予測する'):
             stock_predict()
 except Exception as e:
-exception_type, exception_object, exception_traceback = sys.exc_info()
-filename = exception_traceback.tb_frame.f_code.co_filename
-line_no = exception_traceback.tb_lineno
-st.write(
-except:	f"詳細: {e}"
-)
- st.error(
-        # "エラーが起きているようです。"
-        f"エラーが起きたファイル名：{exception_traceback.tb_frame.f_code.co_filename}"
-        f"行番号：{exception_traceback.tb_lineno}"
+    exception_type, exception_object, exception_traceback = sys.exc_info()
+    filename = exception_traceback.tb_frame.f_code.co_filename
+    line_no = exception_traceback.tb_lineno
+    st.write(f"詳細: {e}")
+    st.error(
+        f"エラーが起きたファイル名：{filename}\n行番号：{line_no}"
     )
+
 
 finally:
     st.write('実行が終了しました！')
+
 
 st.write('Copyright © 2021 Tomoyuki Yoshikawa. All Rights Reserved.')
